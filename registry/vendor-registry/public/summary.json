@@ -1,0 +1,8 @@
+[
+  {
+    "name": "Acme Identity Hub",
+    "slug": "acme",
+    "oidc_support": true,
+    "saml_support": false
+  }
+]

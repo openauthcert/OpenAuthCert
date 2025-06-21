@@ -1,22 +1,29 @@
 # OpenAuthCert Monorepo
 
-This repository contains all components of the Open Authentication Certification Initiative.
 
-## Structure
+This repository contains all core components of the **Open Authentication Certification Initiative**. It hosts the code for the badge server API, vendor registry, documentation website and various tooling.
 
-- `apps/badge-server` - Node.js backend API for badge issuance
-- `specs/badge-spec` - Specifications and validation logic
-- `registry/vendor-registry` - Public vendor registry
-- `tools/tooling` - Python CLI utilities for validation
-- `docs/docs-site` - Documentation site built with VitePress
-- `website` - Public facing website which integrates the docs and registry
+## Repository Structure
 
-## Contributing
+- `/apps/badge-server` - Badge API
+- `/specs/badge-spec` - JSON/YAML badge definitions
+- `/registry/vendor-registry` - Certified vendors
+- `/tools/tooling` - Python CLI & validation tools
+- `/docs/docs-site` - VitePress docs site
+- `/website` - Public marketing site
 
-1. Fork the repository and create a branch for your change.
-2. Install dependencies for the area you work on (`npm` or `pip`).
-3. Run linting and tests (`flake8`, `black`, `pytest`).
-4. Submit a pull request.
+## Building and Testing
 
-The live website is available at [https://openauthcert.org](https://openauthcert.org) and the documentation is served from [https://docs.openauthcert.org](https://docs.openauthcert.org).
+For the documentation site and marketing website:
 
+```bash
+npm install && npm run build
+```
+
+For the Python tooling:
+
+```bash
+pip install -r requirements.txt && pytest
+```
+
+Visit the live site at [https://openauthcert.org](https://openauthcert.org).

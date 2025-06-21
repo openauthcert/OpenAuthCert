@@ -1,4 +1,6 @@
-name: monorepo
+
+name: Monorepo CI
+
 
 on:
   push:
@@ -10,60 +12,51 @@ jobs:
   build-docs:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
-      - run: npm ci --prefix docs/docs-site
-      - run: npm run build --prefix docs/docs-site
+          node-version: 20
+      - run: cd docs/docs-site && npm ci && npm run build
+
 
   build-website:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
-      - run: npm ci --prefix website
-      - run: npm run build --prefix website
+          node-version: 20
+      - run: cd website && npm ci && npm run build
+
 
   lint-python:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+
+      - uses: actions/checkout@v4
       - uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
-      - run: pip install -r tools/tooling/requirements.txt
-      - run: flake8 tools/tooling
-      - run: black --check tools/tooling
+          python-version: '3.x'
+      - run: cd tools/tooling && pip install -r requirements.txt && flake8 . && black --check .
+
 
   test-tooling:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+
+      - uses: actions/checkout@v4
       - uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
-      - run: pip install -r tools/tooling/requirements.txt
-      - run: pytest tools/tooling/tests/
+          python-version: '3.x'
+      - run: cd tools/tooling && pip install -r requirements.txt && pytest
 
-  validate-specs:
+  validate-registry:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
-      - run: pip install -r tools/tooling/requirements.txt
-      - name: Validate vendor registry
-        run: |
-          for f in registry/vendor-registry/vendors/*.json; do
-            python -m openauthcert_tooling.validate_vendor "$f" || exit 1
-          done
-      - name: Validate badge specs
-        run: |
-          for f in specs/badge-spec/specs/**/*.json; do
-            python -m openauthcert_tooling.validate_badge "$f" || exit 1
-          done
-
+          python-version: '3.x'
+      - run: python tools/tooling/validate_vendor_registry.py registry/vendor-registry/

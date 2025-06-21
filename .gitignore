@@ -1,6 +1,16 @@
+
+# Node.js
 node_modules/
 dist/
-pycache/
+.vitepress/dist/
+
+# Python
+__pycache__/
 *.pyc
+.venv/
 .env
+
+# General
 .DS_Store
+*.log
+

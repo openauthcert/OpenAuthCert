@@ -1,0 +1,79 @@
+openapi: 3.0.3
+info:
+  title: OpenAuthCert Badge Server API
+  version: 0.1.0
+  description: Public API for verifying and serving certification badges
+
+servers:
+  - url: https://badge.openauthcert.org
+
+paths:
+  /badge:
+    get:
+      summary: Return badge as SVG image
+      parameters:
+        - in: query
+          name: id
+          schema:
+            type: string
+          required: false
+          description: The badge ID (e.g., free-sso-idp-sample)
+        - in: query
+          name: url
+          schema:
+            type: string
+            format: uri
+          required: false
+          description: Vendor website or repo URL for lookup
+      responses:
+        '200':
+          description: SVG badge
+          content:
+            image/svg+xml:
+              schema:
+                type: string
+                format: binary
+        '400':
+          description: Bad request (missing query)
+        '410':
+          description: Badge is revoked
+        '500':
+          description: Internal error
+
+  /badge.json:
+    get:
+      summary: Return badge metadata in JSON
+      parameters:
+        - in: query
+          name: id
+          schema:
+            type: string
+          required: false
+        - in: query
+          name: url
+          schema:
+            type: string
+            format: uri
+          required: false
+      responses:
+        '200':
+          description: JSON metadata
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: Missing or invalid query
+        '500':
+          description: Internal error
+
+  /health:
+    get:
+      summary: Healthcheck ping
+      responses:
+        '200':
+          description: Server is running
+          content:
+            text/plain:
+              schema:
+                type: string

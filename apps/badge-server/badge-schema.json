@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://openauthcert.org/schema/badge-schema.json",
+  "title": "OpenAuthCert Badge Specification Schema",
+  "type": "object",
+  "required": ["badge", "requirements", "verification", "status", "issued_since", "schema_version"],
+  "properties": {
+    "badge": {
+      "type": "object",
+      "required": ["id", "version", "title", "description", "maintained_by", "license"],
+      "properties": {
+        "id": { "type": "string" },
+        "version": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "category": { "type": "string" },
+        "maintained_by": { "type": "string" },
+        "license": { "type": "string" }
+      }
+    },
+    "requirements": {
+      "type": "object",
+      "properties": {
+        "must_support": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "must_offer": { "type": "string" },
+        "must_document": { "type": "boolean" },
+        "must_be_publicly_visible": { "type": "boolean" }
+      },
+      "required": ["must_offer"]
+    },
+    "optional_features": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "verification": {
+      "type": "object",
+      "required": ["process", "automatable", "requires_narrative_explanation"],
+      "properties": {
+        "process": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "automatable": { "type": "boolean" },
+        "requires_narrative_explanation": { "type": "boolean" }
+      }
+    },
+    "status": { "type": "string" },
+    "issued_since": { "type": "string", "format": "date" },
+    "compatible_projects": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "schema_version": { "type": "string" }
+  }
+}

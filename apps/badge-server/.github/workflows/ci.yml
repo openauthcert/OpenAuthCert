@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    name: Build and Validate
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v3
+
+      - name: ⬇️ Checkout badge-spec
+        uses: actions/checkout@v3
+        with:
+          repository: openauthcert/badge-spec
+          path: badge-spec
+
+      - name: ⬇️ Checkout vendor-registry
+        uses: actions/checkout@v3
+        with:
+          repository: openauthcert/vendor-registry
+          path: vendor-registry
+
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: 📦 Install dependencies
+        run: npm ci
+
+      - name: 📁 Copy shared assets
+        run: npm run copy-assets
+
+      - name: 🛠️ TypeScript Build
+        run: npm run build

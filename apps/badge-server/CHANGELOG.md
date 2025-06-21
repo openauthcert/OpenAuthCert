@@ -1,0 +1,9 @@
+v0.1.0 — Initial Public Release
+
+Badge SVG rendering via /badge?id=...
+JSON badge metadata via /badge.json?id=...
+Vendor registry lookup via ?url=...
+Revoked badge support with visual marker
+AJV schema validation using latest badge-spec
+Dockerized deployment support
+GitHub Actions for CI, GHCR publish

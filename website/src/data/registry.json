@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "acme",
+    "name": "Acme Identity Hub",
+    "version": "1.0.0",
+    "website": "https://acme.example.com",
+    "repo": "https://github.com/acme/openidp",
+    "documentation": "https://acme.example.com/docs",
+    "license": "Unknown",
+    "auth": {
+      "oidc": true,
+      "saml": false,
+      "ldap": true
+    },
+    "badges": [
+      {
+        "id": "free-sso-idp",
+        "version": "0.1",
+        "certified_at": "2025-06-18",
+        "certified_by": "OpenAuthCert Foundation"
+      }
+    ],
+    "self_hosted": true,
+    "notes": "Supports OIDC and LDAP out of the box; no enterprise paywall. Available as Docker and Helm chart."
+  }
+]

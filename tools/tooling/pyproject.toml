@@ -25,3 +25,10 @@ addopts = "-ra"
 [project.scripts]
 tooling = "openauthcert_tooling.__main__:main"
 validate-vendor = "openauthcert_tooling.validate_vendor:main"
+
+[tool.black]
+line-length = 88
+
+[tool.flake8]
+max-line-length = 88
+extend-ignore = ["E203", "W503"]

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://openauthcert.org/schema/badge-schema.json",
+  "badge": {
+    "id": "free-sso-idp",
+    "version": "0.1",
+    "title": "Free SSO/IdP Support",
+    "description": "Awarded to projects or vendors that offer built-in SSO/IdP integration (e.g., OIDC, SAML, LDAP) without requiring an enterprise-tier subscription.",
+    "category": "access-integrity",
+    "maintained_by": "OpenAuthCert Foundation",
+    "license": "CC-BY-SA-4.0"
+  },
+  "requirements": {
+    "must_support": ["OIDC", "SAML", "LDAP"],
+    "must_offer": "At least one identity integration method without enterprise-tier restriction",
+    "must_document": true,
+    "must_be_publicly_visible": true
+  },
+  "optional_features": [
+    "Self-hosted IdP support",
+    "Federated login documentation",
+    "No seat/user-based restriction for IdP use",
+    "IdP enabled by default or via simple config toggle"
+  ],
+  "verification": {
+    "process": [
+      "Manual review of documentation and/or code",
+      "Screenshots or test instance for UI-based apps",
+      "Public confirmation by maintainers (if needed)"
+    ],
+    "automatable": false,
+    "requires_narrative_explanation": true
+  },
+  "auth_protocols": ["OIDC", "SAML", "LDAP"],
+  "docs_url": "https://example.com/docs/auth",
+  "version": "0.1.0",
+  "status": "certified",
+  "issued_since": "2025-06-18",
+  "compatible_projects": [],
+  "schema_version": "1.0"
+}

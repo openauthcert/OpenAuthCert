@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://openauthcert.org/schema/vendor-entry-schema.json",
+  "title": "Vendor Registry Entry Schema",
+  "type": "object",
+  "required": ["name", "website", "repo", "badges"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the project or vendor"
+    },
+    "website": {
+      "type": "string",
+      "format": "uri",
+      "description": "Homepage or documentation URL"
+    },
+    "repo": {
+      "type": "string",
+      "format": "uri",
+      "description": "Code repository URL"
+    },
+    "badges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "version", "certified_at", "certified_by"],
+        "properties": {
+          "id": { "type": "string" },
+          "version": { "type": "string" },
+          "certified_at": { "type": "string", "format": "date" },
+          "certified_by": { "type": "string" }
+        }
+      }
+    },
+    "self_hosted": {
+      "type": "boolean",
+      "default": false
+    },
+    "notes": {
+      "type": "string"
+    },
+    "oidc_support": {
+      "type": "boolean",
+      "description": "Whether the project implements the OpenID Connect protocol"
+    },
+    "saml_support": {
+      "type": "boolean",
+      "description": "Whether the project implements the SAML protocol"
+    },
+    "public_docs_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to public documentation"
+    },
+    "license_type": {
+      "type": "string",
+      "description": "Software license of the project"
+    }
+  }
+ }
+

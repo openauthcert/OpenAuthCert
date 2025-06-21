@@ -1,0 +1,28 @@
+{
+  "name": "openauthcert-website",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs --base /docs/",
+    "serve": "vitepress serve docs",
+    "dev-app": "vite",
+    "build-app": "node scripts/fetch-registry.mjs && vite build"
+  },
+  "dependencies": {
+    "https-proxy-agent": "^7.0.6",
+    "node-fetch": "^3.3.2",
+    "vue": "^3.5.17",
+    "vue-router": "^4.5.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.10",
+    "@vitejs/plugin-vue": "^5.2.4",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.10",
+    "vite": "^6.3.5",
+    "vitepress": "^1.2.0"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "openauthcert-monorepo",
+  "private": true,
+  "scripts": {
+    "build-docs": "vitepress build docs/docs-site",
+    "build-website": "vitepress build website"
+  },
+  "devDependencies": {
+    "vitepress": "^1.0.0"
+  }
+}

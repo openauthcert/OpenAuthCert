@@ -10,9 +10,8 @@ export default defineConfig({
     siteTitle: '',
 
     nav: [
-      { text: 'Docs', link: '/' },
-      { text: 'Badges', link: '/badges' },
-      { text: 'Vendors', link: '/vendors' },
+      { text: 'Docs', link: '/docs/' },
+      { text: 'Certified Vendors', link: '/registry/' },
       { text: 'GitHub', link: 'https://github.com/openauthcert' }
     ],
 

@@ -1,5 +1,6 @@
 # OpenAuthCert Monorepo
 
+
 This repository contains all core components of the **Open Authentication Certification Initiative**. It hosts the code for the badge server API, vendor registry, documentation website and various tooling.
 
 ## Repository Structure
